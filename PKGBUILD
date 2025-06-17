@@ -27,7 +27,7 @@ optdepends=(
     'gst-libav: Soporte para formatos adicionales'
 )
 makedepends=('python-setuptools')
-source=("$pkgname-$pkgver.tar.gz")
+source=("git+https://github.com/Rodopqsi/nautilus-file-explorer.git#tag=v1.0.0")
 sha256sums=('SKIP')
 
 build() {
