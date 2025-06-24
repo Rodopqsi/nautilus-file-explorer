@@ -1,4 +1,3 @@
-# Maintainer: Tu Nombre <tu.email@ejemplo.com>
 pkgname=nautilus-file-explorer
 pkgver=1.0.0
 pkgrel=1
@@ -26,24 +25,25 @@ optdepends=(
     'gst-plugins-bad: Códecs menos comunes'
     'gst-libav: Soporte para formatos adicionales'
 )
-makedepends=('python-setuptools')
-source=("git+https://github.com/Rodopqsi/nautilus-file-explorer.git#tag=v1.0.0")
-sha256sums=('SKIP')
+makedepends=('python-setuptools' 'git')
+source=("git+$url.git#tag=v$pkgver"
+        "nautilus-file-explorer.desktop")
+sha256sums=('SKIP' 'SKIP')
 
 build() {
-    cd "$srcdir/$pkgname-$pkgver"
+    cd "$srcdir/$pkgname"
     python setup.py build
 }
 
 package() {
-    cd "$srcdir/$pkgname-$pkgver"
+    cd "$srcdir/$pkgname"
     python setup.py install --root="$pkgdir" --optimize=1
-    
+
     # Instalar archivo .desktop
-    install -Dm644 "$pkgname.desktop" "$pkgdir/usr/share/applications/$pkgname.desktop"
-    
+    install -Dm644 "$srcdir/nautilus-file-explorer.desktop" "$pkgdir/usr/share/applications/nautilus-file-explorer.desktop"
+
     # Instalar icono si existe
     if [ -f "icon.png" ]; then
-        install -Dm644 "icon.png" "$pkgdir/usr/share/pixmaps/$pkgname.png"
+        install -Dm644 "icon.png" "$pkgdir/usr/share/pixmaps/nautilus-file-explorer.png"
     fi
 }

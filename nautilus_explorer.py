@@ -899,9 +899,9 @@ class FileExplorer(Gtk.Window):
 
 
 def main():
-    """Función principal"""
     app = FileExplorer()
     app.show_all()
+    from gi.repository import Gtk
     Gtk.main()
 
 if __name__ == "__main__":

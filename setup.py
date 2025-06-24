@@ -1,16 +1,14 @@
-from setuptools import setup, find_packages
-
+from setuptools import setup
 
 setup(
     name="nautilus-file-explorer",
     version="1.0.0",
     description="Explorador de archivos gráfico estilo Nautilus con controles de sistema",
-    long_description=open("README.md", "r", encoding="utf-8").read() if os.path.exists("README.md") else "",
+    long_description=open("README.md", "r", encoding="utf-8").read() if __import__('os').path.exists("README.md") else "",
     long_description_content_type="text/markdown",
     author="Rodopqsi",
     author_email="rodolfo.tavera@tecsup.edu.pe",
-    url="https://github.com/Rodopqsi/nautilus-file-explorer.git",
-    packages=find_packages(),
+    url="https://github.com/Rodopqsi/nautilus-file-explorer",
     py_modules=["nautilus_explorer"],
     entry_points={
         "console_scripts": [
