@@ -5,7 +5,7 @@ setup(
     name="nautilus-file-explorer",
     version="1.0.0",
     description="Explorador de archivos gráfico estilo Nautilus con controles de sistema",
-    long_description=open("README.md", "r", encoding="utf-8").read() if __import__('os').path.exists("README.md") else "",
+    long_description=open("README.md", "r", encoding="utf-8").read() if os.path.exists("README.md") else "",
     long_description_content_type="text/markdown",
     author="Rodopqsi",
     author_email="rodolfo.tavera@tecsup.edu.pe",
